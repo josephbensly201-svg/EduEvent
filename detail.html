@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Détail de l'événement - EduEvent</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="image/logo_CHCL.jpg" alt="UEH Logo" />
+                    <span>EduEvent</span>
+                </div>
+                <nav class="nav">
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="evenement.html" class="active">Événements</a></li>
+                        <li><a href="a-propos.html">À propos</a></li>
+                        <li><a href="profil.html">Espace étudiant</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <a href="profil.html" class="btn-login"><i class="fas fa-user"></i> Connexion</a>
+                    <button class="menu-toggle" aria-label="Menu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- DÉTAIL DE L'ÉVÉNEMENT -->
+    <section class="event-detail">
+        <div class="container">
+            <a href="evenement.html" class="back-link"><i class="fas fa-arrow-left"></i> Retour à la liste</a>
+            
+            <div id="eventDetailContainer">
+                <!-- Chargé dynamiquement par JavaScript -->
+            </div>
+
+            <!-- FORMULAIRE D'INSCRIPTION -->
+            <div class="registration-section">
+                <h3>S'inscrire à l'événement</h3>
+                <form id="registrationForm">
+                    <div class="form-group">
+                        <label for="regNom">Nom complet</label>
+                        <input type="text" id="regNom" placeholder="Votre nom et prénom" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="regEmail">Email</label>
+                        <input type="email" id="regEmail" placeholder="votre@email.com" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="regTelephone">Téléphone</label>
+                        <input type="tel" id="regTelephone" placeholder="41460815" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="regNiveau">Niveau d'étude</label>
+                        <select id="regNiveau">
+                            <option value="L1">Licence 1</option>
+                            <option value="L2">Licence 2</option>
+                            <option value="L3" selected>Licence 3</option>
+                            <option value="M1">Master 1</option>
+                            <option value="M2">Master 2</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-primary"><i class="fas fa-check"></i> S'inscrire</button>
+                </form>
+                <div id="registrationMessage" class="form-message"></div>
+            </div>
+
+            <!-- COMMENTAIRES -->
+            <div class="comments-section">
+                <h3>Commentaires et témoignages</h3>
+                <div id="commentsContainer">
+                    <!-- Chargé dynamiquement -->
+                </div>
+                <form id="commentForm">
+                    <div class="form-group">
+                        <label for="commentNom">Votre nom</label>
+                        <input type="text" id="commentNom" placeholder="Votre nom" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="commentText">Votre commentaire</label>
+                        <textarea id="commentText" rows="3" placeholder="Partagez votre avis..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary"><i class="fas fa-comment"></i> Publier</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <img src="image/logo_CHCL.jpg" alt="EduEvent" />
+                        <span>EduEvent</span>
+                    </div>
+                    <p>La plateforme des événements du campus. Ensemble, créons une vie universitaire plus riche.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Navigation</h3>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="evenement.html">Événements</a></li>
+                        <li><a href="a-propos.html">À propos</a></li>
+                        <li><a href="profil.html">Espace étudiant</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Catégories</h3>
+                    <ul>
+                        <li><a href="evenement.html?categorie=conference">Conférences</a></li>
+                        <li><a href="evenement.html?categorie=atelier">Ateliers</a></li>
+                        <li><a href="evenement.html?categorie=sport">Sports</a></li>
+                        <li><a href="evenement.html?categorie=culture">Culture</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-map-marker-alt"></i>Université d'Etat d'Haïti, Campus Henry Christophe de Limonade</p>
+                    <p><i class="fas fa-phone"></i>(+509)3260 6007 - 2262 2000</p>
+                    <p><i class="fas fa-envelope"></i> CHCL@ueh.edu.ht</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 EduEvent. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/detail.js"></script>
+</body>
+</html>

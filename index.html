@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EduEvent - Plateforme des événements du CHCL</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="image/logo_CHCL.jpg" alt="UEH Logo" />
+                    <span>EduEvent</span>
+                </div>
+                <nav class="nav">
+                    <ul>
+                        <li><a href="index.html" class="active">Accueil</a></li>
+                        <li><a href="evenement.html">Événements</a></li>
+                        <li><a href="a-propos.html">À propos</a></li>
+                        <li><a href="profil.html">Espace étudiant</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <a href="profil.html" class="btn-login"><i class="fas fa-user"></i> Connexion</a>
+                    <button class="menu-toggle" aria-label="Menu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-bg">
+            <img src="image/chcl-image.jpg" alt="Campus CHCL" />
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>C H C L <br/><span>Events Official Platform</span></h1>
+                    <p>Découvrez, participez et vivez les événements qui font vibrer le Campus. Conférences, ateliers, sports, culture tout est réuni sur EduEvent.</p>
+                    <div class="hero-buttons">
+                        <a href="evenement.html" class="btn-primary"><i class="fas fa-calendar-check"></i> Explorer les événements</a>
+                        <a href="a-propos.html" class="btn-secondary">En savoir plus</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ÉVÉNEMENTS À LA UNE -->
+    <section class="featured-events">
+        <div class="container">
+            <div class="section-header">
+                <h2>Événements à la une</h2>
+                <p>Ne manquez pas les activités phares de ce mois</p>
+            </div>
+            <div class="events-grid" id="featuredEvents">
+                <!-- Chargé dynamiquement par JavaScript -->
+            </div>
+            <div class="text-center">
+                <a href="evenement.html" class="btn-primary">Voir tous les événements</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATISTIQUES ANIMÉES -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="3">0</div>
+                    <div class="stat-label">Événements organisés</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="230">0</div>
+                    <div class="stat-label">Participants</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="3">0</div>
+                    <div class="stat-label">Catégories</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="98">0</div>
+                    <div class="stat-label">% de satisfaction</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Restez informé</h2>
+                <p>Abonnez-vous à notre newsletter pour recevoir les dernières actualités du campus</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" placeholder="Votre adresse email" required />
+                    <button type="submit"><i class="fas fa-paper-plane"></i> S'abonner</button>
+                </form>
+                <div id="newsletterMessage" class="form-message"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <img src="image/logo_CHCL.jpg" alt="EduEvent" />
+                        <span>EduEvent</span>
+                    </div>
+                    <p>La plateforme des événements de votre campus. Ensemble, créons une vie universitaire plus riche.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Navigation</h3>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="evenement.html">Événements</a></li>
+                        <li><a href="a-propos.html">À propos</a></li>
+                        <li><a href="profil.html">Espace étudiant</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Catégories</h3>
+                    <ul>
+                        <li><a href="evenement.html?categorie=conference">Conférences</a></li>
+                        <li><a href="evenement.html?categorie=atelier">Ateliers</a></li>
+                        <li><a href="evenement.html?categorie=sport">Sports</a></li>
+                        <li><a href="evenement.html?categorie=culture">Culture</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-map-marker-alt"></i>Université d'Etat d'Haïti, Campus Henry Christophe de Limonade</p>
+                    <p><i class="fas fa-phone"></i>(+509)3260 6007 - 2262 2000</p>
+                    <p><i class="fas fa-envelope"></i> CHCL@ueh.edu.ht</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 EduEvent - Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

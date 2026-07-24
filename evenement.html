@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Événements - EduEvent</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="image/logo_CHCL.jpg" alt="UEH Logo" />
+                    <span>EduEvent</span>
+                </div>
+                <nav class="nav">
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="evenement.html" class="active">Événements</a></li>
+                        <li><a href="a-propos.html">À propos</a></li>
+                        <li><a href="profil.html">Espace étudiant</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <a href="profil.html" class="btn-login"><i class="fas fa-user"></i> Connexion</a>
+                    <button class="menu-toggle" aria-label="Menu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- PAGE TITLE -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Tous les événements</h1>
+            <p>Découvrez les activités du CHCL</p>
+        </div>
+    </section>
+
+    <!-- FILTRES ET RECHERCHE -->
+    <section class="filters-section">
+        <div class="container">
+            <div class="filters-container">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Rechercher un événement..." />
+                </div>
+                <div class="filters-group">
+                    <select id="categoryFilter">
+                        <option value="all">Toutes les catégories</option>
+                        <option value="Conférence">Conférences</option>
+                        <option value="Atelier">Ateliers</option>
+                        <option value="Sport">Sports</option>
+                        <option value="Culture">Culture</option>
+                        <option value="Soutenance">Soutenances</option>
+                    </select>
+                    <select id="dateFilter">
+                        <option value="all">Toutes les dates</option>
+                        <option value="today">Aujourd'hui</option>
+                        <option value="week">Cette semaine</option>
+                        <option value="month">Ce mois</option>
+                    </select>
+                </div>
+                <div class="view-toggle">
+                    <button class="view-btn active" data-view="grid"><i class="fas fa-th"></i></button>
+                    <button class="view-btn" data-view="list"><i class="fas fa-list"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ÉVÉNEMENTS -->
+    <section class="events-section">
+        <div class="container">
+            <div id="eventsCount" class="events-count"></div>
+            <div id="eventsContainer" class="events-grid">
+                <!-- Les événements sont générés par JavaScript -->
+            </div>
+            <div class="text-center">
+                <button id="loadMoreBtn" class="btn-primary load-more"><i class="fas fa-plus"></i> Charger plus</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <img src="image/logo_CHCL.jpg" alt="EduEvent" />
+                        <span>EduEvent</span>
+                    </div>
+                    <p>La plateforme des événements du campus. Ensemble, créons une vie universitaire plus riche.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Navigation</h3>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="evenement.html">Événements</a></li>
+                        <li><a href="a-propos.html">À propos</a></li>
+                        <li><a href="profil.html">Espace étudiant</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Catégories</h3>
+                    <ul>
+                        <li><a href="evenement.html?categorie=conference">Conférences</a></li>
+                        <li><a href="evenement.html?categorie=atelier">Ateliers</a></li>
+                        <li><a href="evenement.html?categorie=sport">Sports</a></li>
+                        <li><a href="evenement.html?categorie=culture">Culture</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-map-marker-alt"></i>Université d'Etat d'Haïti, Campus Henry Christophe de Limonade</p>
+                    <p><i class="fas fa-phone"></i>(+509)3260 6007 - 2262 2000</p>
+                    <p><i class="fas fa-envelope"></i> CHCL@ueh.edu.ht</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 EduEvent - Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/evenement.js"></script>
+</body>
+</html>

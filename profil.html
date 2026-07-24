@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Espace étudiant - EduEvent</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="image/logo_CHCL.jpg" alt="UEH Logo" />
+                    <span>EduEvent</span>
+                </div>
+                <nav class="nav">
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="evenement.html">Événements</a></li>
+                        <li><a href="a-propos.html">À propos</a></li>
+                        <li><a href="profil.html" class="active">Espace étudiant</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <a href="profil.html" class="btn-login"><i class="fas fa-user"></i> Connexion</a>
+                    <button class="menu-toggle" aria-label="Menu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- PAGE TITLE -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Espace étudiant</h1>
+            <p id="pageSubtitle">Gérez votre profil et vos inscriptions</p>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION AUTHENTIFICATION -->
+    <!-- ============================================ -->
+    <section class="auth-section" id="authSection">
+        <div class="container">
+            <div class="auth-container">
+
+                <div class="auth-options">
+                    <button class="auth-btn active" onclick="showForm('login')">Se connecter</button>
+                    <button class="auth-btn" onclick="showForm('register')">Créer un compte</button>
+                </div>
+
+                <!-- FORMULAIRE DE CONNEXION -->
+                <div id="loginFormContainer" class="auth-form">
+                    <h2>Connexion</h2>
+                    <p>Entrez vos identifiants pour accéder à votre espace</p>
+
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label>Adresse email</label>
+                            <input type="email" id="loginEmail" placeholder="votre@email.com" required />
+                        </div>
+                        <div class="form-group">
+                            <label>Mot de passe</label>
+                            <input type="password" id="loginPassword" placeholder="Votre mot de passe" required />
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" /> Se souvenir de moi
+                            </label>
+                        </div>
+                        <button type="submit" class="btn-primary btn-full">Se connecter</button>
+                    </form>
+
+                    <p class="auth-switch">
+                        Vous n'avez pas de compte ? 
+                        <a href="#" onclick="showForm('register')">Inscrivez-vous</a>
+                    </p>
+                </div>
+
+                <!-- FORMULAIRE D'INSCRIPTION -->
+                <div id="registerFormContainer" class="auth-form" style="display:none;">
+                    <h2>Inscription</h2>
+                    <p>Créez votre compte pour accéder à tous les services</p>
+
+                    <form id="registerForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Prénom</label>
+                                <input type="text" id="regPrenom" placeholder="Joseph" required />
+                            </div>
+                            <div class="form-group">
+                                <label>Nom</label>
+                                <input type="text" id="regNom" placeholder="Bensly" required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Adresse email</label>
+                            <input type="email" id="regEmail" placeholder="votre@email.com" required />
+                        </div>
+                        <div class="form-group">
+                            <label>Téléphone</label>
+                            <input type="tel" id="regTelephone" placeholder="41460815" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label>Votre Statut :</label>
+                            <select id="regRole">
+                                <option value="etudiant">Étudiant</option>
+                                <option value="professeur">Professeur / Enseignant</option>
+                                <option value="administration">Membre de l'administration</option>
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Faculté</label>
+                                <select id="regFaculte">
+                                    <option value="">Sélectionnez</option>
+                                    <option value="FSG">FSG</option>
+                                    <option value="FSTEAT">FSTEAT</option>
+                                    <option value="Beaux Arts">Beaux Arts</option>
+                                    <option value="Ecole de Médecine">Ecole de Médecine</option>
+                                    <option value="FASE">FASE</option>
+                                    <option value="FSHS">FSHS</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Niveau / Fonction</label>
+                                <select id="regNiveau">
+                                    <option value="">Sélectionnez</option>
+                                    <option value="Licence 1">Licence 1</option>
+                                    <option value="Licence 2">Licence 2</option>
+                                    <option value="Licence 3">Licence 3</option>
+                                    <option value="Licence 4">Licence 4</option>
+                                    <option value="Master">Master</option>
+                                    <option value="Doctorat">Doctorat</option>
+                                    <option value="Professeur">Professeur</option>
+                                    <option value="Administration">Administration</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Mot de passe</label>
+                            <input type="password" id="regPassword" placeholder="Minimum 8 caractères" required />
+                        </div>
+                        <div class="form-group">
+                            <label>Confirmer le mot de passe</label>
+                            <input type="password" id="regConfirmPassword" placeholder="Confirmez votre mot de passe" required />
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="regTerms" required /> J'accepte les conditions d'utilisation
+                            </label>
+                        </div>
+                        <button type="submit" class="btn-primary btn-full">Créer mon compte</button>
+                    </form>
+
+                    <p class="auth-switch">
+                        Vous avez déjà un compte ? 
+                        <a href="#" onclick="showForm('login')">Connectez-vous</a>
+                    </p>
+                </div>
+
+            </div>
+        </div>  
+    </section>  
+
+    <!-- SECTION PROFIL -->
+    <section class="profil-section" id="profilSection" style="display:none;">
+        <div class="container">
+            <div class="profil-grid">
+                
+                <!-- SIDEBAR -->
+                <aside class="profil-sidebar">
+                    
+                    <div class="profil-card">
+                        
+                        <div class="profil-cover">
+                            <div class="cover-edit">
+                                <i class="fas fa-camera"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="profil-avatar-wrapper">
+                            <div class="profil-avatar">
+                                <img src="image/avatar-default.png" alt="Avatar" id="profilAvatar" />
+                                <button class="avatar-edit" onclick="ouvrirSelecteurPhoto()">
+                                    <i class="fas fa-camera"></i>
+                                </button>
+                                <input type="file" id="avatarUpload" accept="image/*" style="display:none;" />
+                            </div>
+                        </div>
+                        
+                        <div class="profil-user-info">
+                            <h3 id="profilDisplayNom">Utilisateur</h3>
+                            <p class="profil-user-role" id="profilDisplayRole">Étudiant</p>
+                            <p class="profil-user-faculte" id="profilDisplayFaculte">Faculté</p>
+                            <p class="profil-user-programme" id="profilDisplayProgramme">Niveau</p>
+                        </div>
+                        
+                        <div class="profil-stats">
+                            <div class="stat-item">
+                                <span class="stat-number" id="statInscriptions">0</span>
+                                <span class="stat-label">Inscriptions</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" id="statEvenements">0</span>
+                                <span class="stat-label">Événements</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" id="statAnnee">2026</span>
+                                <span class="stat-label">Année</span>
+                            </div>
+                        </div>
+                        
+                        <nav class="profil-nav">
+                            <ul>
+                                <li>
+                                    <a href="#" class="active" data-tab="dashboard">
+                                        <i class="fas fa-th-large"></i> Tableau de bord
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" data-tab="inscriptions">
+                                        <i class="fas fa-calendar-check"></i> Mes inscriptions
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" data-tab="settings">
+                                        <i class="fas fa-cog"></i> Paramètres
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" id="logoutBtn" style="color: #dc3545;">
+                                        <i class="fas fa-sign-out-alt"></i> Déconnexion
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                </aside>
+
+                <!-- CONTENU PRINCIPAL -->
+                <main class="profil-content">
+
+                    <!-- Tableau de bord -->
+                    <div id="tabDashboard" class="tab-content active">
+                        <div class="dashboard-header">
+                            <h2><i class="fas fa-th-large"></i> Tableau de bord</h2>
+                            <p>Bienvenue sur votre espace personnel</p>
+                        </div>
+                        
+                        <div class="dashboard-cards">
+                            <div class="dash-card">
+                                <div class="dash-card-icon">
+                                    <i class="fas fa-calendar-plus"></i>
+                                </div>
+                                <div class="dash-card-info">
+                                    <span class="dash-number" id="dashInscriptions">0</span>
+                                    <span class="dash-label">Inscriptions</span>
+                                </div>
+                            </div>
+                            <div class="dash-card">
+                                <div class="dash-card-icon">
+                                    <i class="fas fa-university"></i>
+                                </div>
+                                <div class="dash-card-info">
+                                    <span class="dash-number" id="dashFaculte">-</span>
+                                    <span class="dash-label">Faculté</span>
+                                </div>
+                            </div>
+                            <div class="dash-card">
+                                <div class="dash-card-icon">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <div class="dash-card-info">
+                                    <span class="dash-number" id="dashNiveau">-</span>
+                                    <span class="dash-label">Niveau</span>
+                                </div>
+                            </div>
+                            <div class="dash-card">
+                                <div class="dash-card-icon">
+                                    <i class="fas fa-calendar-alt"></i>
+                                </div>
+                                <div class="dash-card-info">
+                                    <span class="dash-number" id="dashDate">2026</span>
+                                    <span class="dash-label">Année</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="dashboard-activities">
+                            <h3>Activités récentes</h3>
+                            <div id="recentActivities">
+                                <p style="color: var(--gray);">Aucune activité récente</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mes inscriptions -->
+                    <div id="tabInscriptions" class="tab-content">
+                        <div class="dashboard-header">
+                            <h2><i class="fas fa-calendar-check"></i> Mes inscriptions</h2>
+                            <p>Liste des événements auxquels vous êtes inscrit</p>
+                        </div>
+                        <div id="inscriptionsList">
+                            <!-- Chargé dynamiquement -->
+                        </div>
+                    </div>
+
+                    <!-- Paramètres -->
+                    <div id="tabSettings" class="tab-content">
+                        <div class="dashboard-header">
+                            <h2><i class="fas fa-cog"></i> Paramètres</h2>
+                            <p>Modifiez vos informations personnelles</p>
+                        </div>
+                        
+                        <div class="settings-section">
+                            <h3>Informations personnelles</h3>
+                            <form id="profilForm">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="profilPrenom">Prénom</label>
+                                        <input type="text" id="profilPrenom" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="profilNom">Nom</label>
+                                        <input type="text" id="profilNom" required />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="profilEmail">Email</label>
+                                    <input type="email" id="profilEmail" required />
+                                </div>
+                                <div class="form-group">
+                                    <label for="profilTelephone">Téléphone</label>
+                                    <input type="tel" id="profilTelephone" />
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="profilFaculte">Faculté</label>
+                                        <input type="text" id="profilFaculte" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="profilNiveau">Niveau</label>
+                                        <input type="text" id="profilNiveau" />
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn-primary">
+                                    <i class="fas fa-save"></i> Enregistrer les modifications
+                                </button>
+                            </form>
+                            <div id="profilMessage" class="form-message"></div>
+                        </div>
+                        
+                        <div class="settings-section" style="margin-top: 40px; padding-top: 30px; border-top: 2px solid var(--gray-light);">
+                            <h3>Changer le mot de passe</h3>
+                            <form id="settingsForm">
+                                <div class="form-group">
+                                    <label>Ancien mot de passe</label>
+                                    <input type="password" id="oldPassword" placeholder="Ancien mot de passe" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Nouveau mot de passe</label>
+                                    <input type="password" id="newPassword" placeholder="Nouveau mot de passe (min. 8 caractères)" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Confirmer le mot de passe</label>
+                                    <input type="password" id="confirmNewPassword" placeholder="Confirmer le mot de passe" required />
+                                </div>
+                                <button type="submit" class="btn-primary">
+                                    <i class="fas fa-key"></i> Changer le mot de passe
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <img src="image/logo_CHCL.jpg" alt="EduEvent" />
+                        <span>EduEvent</span>
+                    </div>
+                    <p>La plateforme des événements de votre campus. Ensemble, créons une vie universitaire plus riche.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Navigation</h3>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="evenement.html">Événements</a></li>
+                        <li><a href="a-propos.html">À propos</a></li>
+                        <li><a href="profil.html">Espace étudiant</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Catégories</h3>
+                    <ul>
+                        <li><a href="evenement.html?categorie=conference">Conférences</a></li>
+                        <li><a href="evenement.html?categorie=atelier">Ateliers</a></li>
+                        <li><a href="evenement.html?categorie=sport">Sports</a></li>
+                        <li><a href="evenement.html?categorie=culture">Culture</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-map-marker-alt"></i>Université d'Etat d'Haïti, Campus Henry Christophe de Limonade</p>
+                    <p><i class="fas fa-phone"></i>(+509)3260 6007 - 2262 2000</p>
+                    <p><i class="fas fa-envelope"></i> CHCL@ueh.edu.ht</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 EduEvent. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/profil.js"></script>
+</body>
+</html>

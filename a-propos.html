@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>À propos - EduEvent</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="image/logo_CHCL.jpg" alt="UEH Logo" />
+                    <span>EduEvent</span>
+                </div>
+                <nav class="nav">
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="evenement.html">Événements</a></li>
+                        <li><a href="a-propos.html" class="active">À propos</a></li>
+                        <li><a href="profil.html">Espace étudiant</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <a href="profil.html" class="btn-login"><i class="fas fa-user"></i> Connexion</a>
+                    <button class="menu-toggle" aria-label="Menu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- PAGE TITLE -->
+    <section class="page-header">
+        <div class="container">
+            <h1>À propos d'EduEvent</h1>
+            <p>Découvrez notre mission et notre équipe</p>
+        </div>
+    </section>
+
+    <!-- PRÉSENTATION -->
+    <section class="about-presentation">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Notre mission</h2>
+                    <p>EduEvent est une plateforme innovante dédiée à la communauté universitaire. Notre objectif est de centraliser et de faciliter l'accès à tous les événements organisés sur le campus.</p>
+                    <p>Que vous soyez étudiant, professeur ou membre de l'administration, EduEvent vous permet de découvrir, vous inscrire et participer activement à la vie de votre université.</p>
+                    <div class="about-values">
+                        <div class="value-item">
+                            <i class="fas fa-users"></i>
+                            <h4>Communauté</h4>
+                            <p>Rassembler la communauté universitaire</p>
+                        </div>
+                        <div class="value-item">
+                            <i class="fas fa-bullseye"></i>
+                            <h4>Accessibilité</h4>
+                            <p>Rendre l'information accessible à tous</p>
+                        </div>
+                        <div class="value-item">
+                            <i class="fas fa-star"></i>
+                            <h4>Qualité</h4>
+                            <p>Offrir des événements de qualité</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="image/events/conference2.jpg" alt="À propos d'EduEvent" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ÉQUIPE -->
+    <section class="team-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Notre équipe</h2>
+                <p>Deux étudiants de Licence 3 à l'Université d'Etat d'Haïti - Campus Henry Christophe de Limonade (UEH-CHCL), unis pour ce projet</p>
+            </div>
+            <div class="team-grid" style="grid-template-columns: repeat(2, 1fr); max-width: 700px; margin: 0 auto;">
+                <!-- Bensly JOSEPH -->
+                <div class="team-card">
+                    <div class="team-photo">
+                        <img src="image/Bensly.jpg" alt="Bensly JOSEPH" />
+                    </div>
+                    <h3>Bensly JOSEPH</h3>
+                    <p class="team-role">HTML & CSS</p>
+                    <p>Étudiant en Licence 3 à l'UEH-CHCL, Graphiste et communicant dans l'âme, Bensly JOSEPH allie créativité et stratégie pour offrir une expérience utilisateur exceptionnelle.</p>
+                    <p style="color: var(--gray); font-size: 0.85rem; margin-top: 8px;">
+                        <i class="fas fa-paint-brush"></i> Design & Structure
+                    </p>
+                </div>
+                
+                <!-- Wilkenson TELFORT -->
+                <div class="team-card">
+                    <div class="team-photo">
+                        <img src="image/wilkey.jpg" alt="Wilkenson TELFORT" />
+                    </div>
+                    <h3>Wilkenson TELFORT</h3>
+                    <p class="team-role">JavaScript & JSON</p>
+                    <p>Étudiant en Licence 3 à l'UEH-CHCL, Passionné par la programmation et les nouvelles technologies, Wilkenson TELFORT apporte son expertise en développement back-end et en programmation.</p>
+                    <p style="color: var(--gray); font-size: 0.85rem; margin-top: 8px;">
+                        <i class="fas fa-code"></i> Interactions & Données
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMULAIRE DE CONTACT ET CARTE -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-form-container">
+                    <h2>Contactez-nous</h2>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="contactNom">Nom complet</label>
+                            <input type="text" id="contactNom" placeholder="Votre nom" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="contactEmail">Email</label>
+                            <input type="email" id="contactEmail" placeholder="votre@email.com" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="contactSujet">Sujet</label>
+                            <input type="text" id="contactSujet" placeholder="Sujet de votre message" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="contactMessage">Message</label>
+                            <textarea id="contactMessage" rows="4" placeholder="Votre message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary"><i class="fas fa-paper-plane"></i> Envoyer</button>
+                    </form>
+                    <div id="contactFormMessage" class="form-message"></div>
+                </div>
+                <div class="contact-map">
+                    <h2>Nous trouver</h2>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3777.6874!2d-72.1193!3d19.7063!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ecb4d9f8b0b0b0b%3A0x1b3b3b3b3b3b3b3b!2sCampus%20Henry%20Christophe%20de%20Limonade!5e0!3m2!1sfr!2sht!4v1700000000000" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Pister, Dubout, Limonade, Nord, Haïti</p>
+                        <p><i class="fas fa-phone"></i> +509 36 00 00 00</p>
+                        <p><i class="fas fa-envelope"></i>CHCL@ueh.edu.ht</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Questions fréquentes</h2>
+                <p>Réponses aux questions les plus posées</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Comment puis-je m'inscrire à un événement ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Pour vous inscrire à un événement, rendez-vous sur la page de détail de l'événement et remplissez le formulaire d'inscription. Vous recevrez une confirmation par email.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Les événements sont-ils gratuits ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>La plupart des événements sont gratuits pour les étudiants. Certains ateliers spécialisés peuvent avoir un coût, précisé dans la description.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Puis-je annuler mon inscription ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Oui, vous pouvez annuler votre inscription depuis votre espace étudiant dans la rubrique "Mes inscriptions".</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Comment proposer un événement ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Pour proposer un événement, contactez-nous via le formulaire de contact ou envoyez un email à eduevent@gmail.com.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <img src="image/logo_CHCL.jpg" alt="EduEvent" />
+                        <span>EduEvent</span>
+                    </div>
+                    <p>La plateforme des événements du campus. Ensemble, créons une vie universitaire plus riche.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Navigation</h3>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="evenement.html">Événements</a></li>
+                        <li><a href="a-propos.html">À propos</a></li>
+                        <li><a href="profil.html">Espace étudiant</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Catégories</h3>
+                    <ul>
+                        <li><a href="evenement.html?categorie=conference">Conférences</a></li>
+                        <li><a href="evenement.html?categorie=atelier">Ateliers</a></li>
+                        <li><a href="evenement.html?categorie=sport">Sports</a></li>
+                        <li><a href="evenement.html?categorie=culture">Culture</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-map-marker-alt"></i>Université d'Etat d'Haïti, Campus Henry Christophe de Limonade</p>
+                    <p><i class="fas fa-phone"></i>(+509)3260 6007 - 2262 2000</p>
+                    <p><i class="fas fa-envelope"></i> CHCL@ueh.edu.ht</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 EduEvent. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/a-propos.js"></script>
+</body>
+</html>
