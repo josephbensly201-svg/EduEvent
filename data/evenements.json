@@ -1,0 +1,74 @@
+[
+    {
+        "id": 1,
+        "titre": "Conférence sur l'Intelligence Artificielle",
+        "description": "Découvrez les dernières avancées en IA et comment elles transforment notre monde. Une conférence animée par des experts du domaine.",
+        "date": "2026-07-15T14:00:00",
+        "lieu": "Auditorium, Campus CHCL",
+        "categorie": "Conférence",
+        "organisateur": "Département d'Informatique",
+        "image": "image/events/conference1.jpg",
+        "capacite": 100,
+        "inscrits": 75
+    },
+    {
+        "id": 2,
+        "titre": "Atelier sur les Réseaux Informatiques",
+        "description": "Apprenez à construire et administrer des réseaux informatiques modernes. Atelier pratique avec des exercices concrets.",
+        "date": "2026-07-20T09:00:00",
+        "lieu": "Salle 204, Campus CHCL",
+        "categorie": "Atelier",
+        "organisateur": "Club Tech",
+        "image": "image/events/reseaux.jpg",
+        "capacite": 50,
+        "inscrits": 30
+    },
+    {
+        "id": 3,
+        "titre": "Tournoi de Football Universitaire",
+        "description": "Tournoi inter-facultés de football. Inscrivez votre équipe et venez défendre les couleurs de votre faculté.",
+        "date": "2026-07-25T10:00:00",
+        "lieu": "Parc Raphaël, Campus CHCL",
+        "categorie": "Sport",
+        "organisateur": "Service des Sports",
+        "image": "image/events/foot1.jpg",
+        "capacite": 200,
+        "inscrits": 120
+    },
+    {
+        "id": 4,
+        "titre": "Soirée Culturelle",
+        "description": "Une soirée dédiée à la culture avec gastronomie, musique et danses traditionnelles.",
+        "date": "2026-07-30T18:00:00",
+        "lieu": "Espace Culturel, Campus CHCL",
+        "categorie": "Culture",
+        "organisateur": "Association Culturelle",
+        "image": "image/events/soiree.jpg",
+        "capacite": 150,
+        "inscrits": 90
+    },
+    {
+        "id": 5,
+        "titre": "Soutenance de Thèse en Sciences Informatiques",
+        "description": "Soutenance publique de thèse en Sciences Informatiques sur le thème : 'Développement d'une plateforme de gestion d'événements universitaires avec JavaScript et JSON'.",
+        "date": "2026-08-05T09:00:00",
+        "lieu": "Auditorium, Campus CHCL",
+        "categorie": "Soutenance",
+        "organisateur": "Département d'Informatique",
+        "image": "image/events/default.jpg",
+        "capacite": 100,
+        "inscrits": 60
+    },
+    {
+        "id": 6,
+        "titre": "Conférence sur la Santé Publique",
+        "description": "Conférence sur les défis de la santé publique en Haïti. Avec la participation de médecins et de chercheurs.",
+        "date": "2026-08-10T14:00:00",
+        "lieu": "Auditorium, Campus CHCL",
+        "categorie": "Conférence",
+        "organisateur": "Faculté de Médecine",
+        "image": "image/events/default.jpg",
+        "capacite": 120,
+        "inscrits": 80
+    }
+]
