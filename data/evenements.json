@@ -55,7 +55,7 @@
         "lieu": "Auditorium, Campus CHCL",
         "categorie": "Soutenance",
         "organisateur": "Département d'Informatique",
-        "image": "image/events/default.jpg",
+        "image": "image/events/soutenance.jpg",
         "capacite": 100,
         "inscrits": 60
     },
@@ -67,7 +67,7 @@
         "lieu": "Auditorium, Campus CHCL",
         "categorie": "Conférence",
         "organisateur": "Faculté de Médecine",
-        "image": "image/events/default.jpg",
+        "image": "image/events/Confer..jpg",
         "capacite": 120,
         "inscrits": 80
     }
