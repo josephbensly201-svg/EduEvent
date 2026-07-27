@@ -1,8 +1,7 @@
-// ============================================
-// DETAIL.JS - Page détail d'un événement
-// ============================================
+// DETAIL.JS 
 
-// ===== RÉFÉRENCES DOM =====
+
+// RÉFÉRENCES DOM 
 const container = document.getElementById('eventDetailContainer');
 const registrationForm = document.getElementById('registrationForm');
 const registrationMessage = document.getElementById('registrationMessage');
@@ -11,9 +10,68 @@ const commentsContainer = document.getElementById('commentsContainer');
 
 let currentEvent = null;
 
-// ============================================
+// MENU MOBILE
+
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.getElementById('menuToggle');
+    const nav = document.getElementById('mainNav');
+
+    if (menuToggle && nav) {
+        menuToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            nav.classList.toggle('open');
+        });
+
+        const navLinks = nav.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                nav.classList.remove('open');
+            });
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!nav.contains(e.target) && !menuToggle.contains(e.target)) {
+                nav.classList.remove('open');
+            }
+        });
+    }
+
+    
+    updateLoginButton();
+});
+
+
+// GESTION DU BOUTON CONNEXION
+function updateLoginButton() {
+    const btnLogin = document.getElementById('btnLogin');
+    const currentUser = localStorage.getItem('chcl_current_user');
+    
+    if (btnLogin) {
+        if (currentUser) {
+            btnLogin.style.display = 'none';
+        } else {
+            btnLogin.style.display = 'inline-flex';
+        }
+    }
+}
+
+
+// VALIDATION EMAIL 
+function isValidEmail(email) {
+    const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return re.test(email);
+}
+
+
+// VALIDATION DU NOM 
+function estNomValide(nom) {
+    const regex = /^[A-Za-zÀ-ÿ\s\-']+$/;
+    return regex.test(nom);
+}
+
+
 // CHARGER LES ÉVÉNEMENTS
-// ============================================
+
 async function chargerEvenements() {
     try {
         const response = await fetch('data/evenements.json');
@@ -35,7 +93,7 @@ function getDefaultEvents() {
             lieu: "Auditorium, Campus CHCL",
             categorie: "Conférence",
             organisateur: "Département d'Informatique",
-            image: "image/events/conference1.jpg",
+            image: "images/events/conference1.jpg",
             capacite: 100,
             inscrits: 75
         },
@@ -47,7 +105,7 @@ function getDefaultEvents() {
             lieu: "Salle 204, Campus CHCL",
             categorie: "Atelier",
             organisateur: "Club Tech",
-            image: "image/events/reseaux.jpg",
+            image: "images/events/reseaux.jpg",
             capacite: 50,
             inscrits: 30
         },
@@ -59,7 +117,7 @@ function getDefaultEvents() {
             lieu: "Parc Raphaël, Campus CHCL",
             categorie: "Sport",
             organisateur: "Service des Sports",
-            image: "image/events/foot1.jpg",
+            image: "images/events/foot1.jpg",
             capacite: 200,
             inscrits: 120
         },
@@ -71,16 +129,15 @@ function getDefaultEvents() {
             lieu: "Espace Culturel, Campus CHCL",
             categorie: "Culture",
             organisateur: "Association Culturelle",
-            image: "image/events/soiree.jpg",
+            image: "images/events/soiree.jpg",
             capacite: 150,
             inscrits: 90
         }
     ];
 }
 
-// ============================================
 // GESTION LOCALSTORAGE
-// ============================================
+
 function getCurrentUser() {
     const user = localStorage.getItem('chcl_current_user');
     return user ? JSON.parse(user) : null;
@@ -103,9 +160,7 @@ function getUserInscriptions(email) {
     return data[email] || [];
 }
 
-// ============================================
 // CHARGER LE DÉTAIL DE L'ÉVÉNEMENT
-// ============================================
 function getEventId() {
     const params = new URLSearchParams(window.location.search);
     return params.get('id');
@@ -127,7 +182,7 @@ async function loadEventDetail() {
             <div style="text-align:center;padding:60px;">
                 <i class="fas fa-search" style="font-size:3rem;color:var(--gray);"></i>
                 <p style="color:var(--gray);margin-top:12px;">Événement non trouvé.</p>
-                <a href="evenement.html" class="btn-primary" style="margin-top:16px;">Retour à la liste</a>
+                <a href="evenements.html" class="btn-primary" style="margin-top:16px;">Retour à la liste</a>
             </div>
         `;
         return;
@@ -138,9 +193,9 @@ async function loadEventDetail() {
     loadComments(eventId);
 }
 
-// ============================================
+
 // AFFICHER LE DÉTAIL
-// ============================================
+
 function renderEventDetail(event) {
     const date = new Date(event.date);
     const formattedDate = date.toLocaleDateString('fr-FR', {
@@ -154,11 +209,11 @@ function renderEventDetail(event) {
         minute: '2-digit'
     });
     const placesRestantes = event.capacite - event.inscrits;
-    const imagePath = event.image || 'image/events/default.jpg';
+    const imagePath = event.image || 'images/events/default.jpg';
 
     container.innerHTML = `
         <div class="event-detail-container">
-            <img src="${imagePath}" alt="${event.titre}" class="event-detail-banner" onerror="this.src='image/events/default.jpg'" />
+            <img src="${imagePath}" alt="${event.titre}" class="event-detail-banner" onerror="this.src='images/events/default.jpg'" />
             <div class="event-detail-info">
                 <div class="event-meta">
                     <span><i class="fas fa-calendar"></i> ${formattedDate}</span>
@@ -188,9 +243,7 @@ function renderEventDetail(event) {
     `;
 }
 
-// ============================================
-// INSCRIPTION AVEC SAUVEGARDE
-// ============================================
+// INSCRIPTION 
 registrationForm.addEventListener('submit', function (e) {
     e.preventDefault();
 
@@ -198,8 +251,8 @@ registrationForm.addEventListener('submit', function (e) {
     const email = document.getElementById('regEmail').value.trim();
     const telephone = document.getElementById('regTelephone').value.trim();
 
-    if (!nom || nom.length < 2) {
-        showRegistrationMessage('Veuillez entrer un nom complet valide.', 'error');
+    if (!nom || nom.length < 2 || !estNomValide(nom)) {
+        showRegistrationMessage('Veuillez entrer un nom complet valide (lettres uniquement, minimum 2 caractères).', 'error');
         return;
     }
     if (!email || !isValidEmail(email)) {
@@ -228,7 +281,6 @@ registrationForm.addEventListener('submit', function (e) {
         return;
     }
 
-    // Vérifier si déjà inscrit
     const userInscriptions = getUserInscriptions(currentUser.email);
     const alreadyRegistered = userInscriptions.some(ins => ins.eventId === currentEvent.id);
     
@@ -237,7 +289,6 @@ registrationForm.addEventListener('submit', function (e) {
         return;
     }
 
-    // Créer l'inscription
     const inscription = {
         id: Date.now(),
         eventId: currentEvent.id,
@@ -254,13 +305,10 @@ registrationForm.addEventListener('submit', function (e) {
         dateInscription: new Date().toLocaleDateString('fr-FR')
     };
 
-    // Sauvegarder
     saveUserInscription(currentUser.email, inscription);
 
-    // Incrémenter le nombre d'inscrits
     currentEvent.inscrits++;
     
-    // Mettre à jour l'affichage des places
     const placesSpan = document.getElementById('placesRestantes');
     if (placesSpan) {
         const placesRestantes = currentEvent.capacite - currentEvent.inscrits;
@@ -269,7 +317,7 @@ registrationForm.addEventListener('submit', function (e) {
     }
 
     showRegistrationMessage(
-        `✅ Félicitations ${nom} ! Vous êtes inscrit(e) à "${currentEvent.titre}".`,
+        ` Félicitations ${nom} ! Vous êtes inscrit(e) à "${currentEvent.titre}".`,
         'success'
     );
     
@@ -286,18 +334,13 @@ function showRegistrationMessage(message, type) {
     }, 5000);
 }
 
-function isValidEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-}
 
-// ============================================
 // COMMENTAIRES
-// ============================================
+
 function loadComments(eventId) {
     const commentsData = {
         '1': [
-            { nom: 'Frantz S.', date: '15 juin 2026', texte: 'Excellent événement, j\'ai beaucoup appris !' },
+            { nom: 'Frantz S.', date: '15 juin 2026', texte: 'Excellent événement, j\'ai beaucoup appris l\'annee derniere !' },
             { nom: 'Building 4S.', date: '16 juin 2026', texte: 'Très intéressant, je recommande.' }
         ],
         '2': [
@@ -333,8 +376,8 @@ commentForm.addEventListener('submit', function (e) {
     const nom = document.getElementById('commentNom').value.trim();
     const texte = document.getElementById('commentText').value.trim();
 
-    if (!nom || !texte) {
-        alert('Veuillez remplir tous les champs.');
+    if (!nom || !texte || !estNomValide(nom)) {
+        alert('Veuillez remplir tous les champs (lettres uniquement pour le nom).');
         return;
     }
 
@@ -364,9 +407,7 @@ commentForm.addEventListener('submit', function (e) {
     this.reset();
 });
 
-// ============================================
 // PARTAGE
-// ============================================
 function shareEvent(platform) {
     const url = encodeURIComponent(window.location.href);
     const text = encodeURIComponent('Découvrez cet événement sur EduEvent !');
@@ -390,7 +431,5 @@ function shareEvent(platform) {
     return false;
 }
 
-// ============================================
 // INITIALISATION
-// ============================================
 loadEventDetail();
