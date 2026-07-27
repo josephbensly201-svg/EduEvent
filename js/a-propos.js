@@ -1,21 +1,78 @@
-// ============================================
-// A-PROPOS.JS - Page À propos
-// ============================================
+// A-PROPOS.JS 
 
-// ===== FAQ ACCORDÉON =====
+// MENU MOBILE
+
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.getElementById('menuToggle');
+    const nav = document.getElementById('mainNav');
+
+    if (menuToggle && nav) {
+        menuToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            nav.classList.toggle('open');
+        });
+
+        const navLinks = nav.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                nav.classList.remove('open');
+            });
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!nav.contains(e.target) && !menuToggle.contains(e.target)) {
+                nav.classList.remove('open');
+            }
+        });
+    }
+
+    // GESTION DU BOUTON CONNEXION 
+    updateLoginButton();
+});
+
+
+// GESTION DU BOUTON CONNEXION
+
+function updateLoginButton() {
+    const btnLogin = document.getElementById('btnLogin');
+    const currentUser = localStorage.getItem('chcl_current_user');
+    
+    if (btnLogin) {
+        if (currentUser) {
+            btnLogin.style.display = 'none';
+        } else {
+            btnLogin.style.display = 'inline-flex';
+        }
+    }
+}
+
+// VALIDATION EMAIL
+function isValidEmail(email) {
+    const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return re.test(email);
+}
+
+
+// VALIDATION DU NOM 
+function estNomValide(nom) {
+    const regex = /^[A-Za-zÀ-ÿ\s\-']+$/;
+    return regex.test(nom);
+}
+
+
+// FAQ ACCORDÉON
+
 document.addEventListener('DOMContentLoaded', function () {
     const faqItems = document.querySelectorAll('.faq-item');
 
     faqItems.forEach(item => {
         const question = item.querySelector('.faq-question');
         question.addEventListener('click', function () {
-            // Fermer les autres FAQ
             faqItems.forEach(other => {
                 if (other !== item && other.classList.contains('active')) {
                     other.classList.remove('active');
                 }
             });
-            // Basculer l'item actuel
             item.classList.toggle('active');
         });
     });
@@ -33,9 +90,8 @@ document.addEventListener('DOMContentLoaded', function () {
             const sujet = document.getElementById('contactSujet').value.trim();
             const message = document.getElementById('contactMessage').value.trim();
 
-            // Validation
-            if (!nom || nom.length < 2) {
-                showContactMessage('Veuillez entrer votre nom complet (minimum 2 caractères).', 'error');
+            if (!nom || nom.length < 2 || !estNomValide(nom)) {
+                showContactMessage('Veuillez entrer votre nom complet (lettres uniquement, minimum 2 caractères).', 'error');
                 return;
             }
 
@@ -54,16 +110,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 return;
             }
 
-            // Simulation d'envoi
             showContactMessage(
-                '✅ Votre message a été envoyé avec succès ! Nous vous répondrons dans les plus brefs délais.',
+                ' Votre message a été envoyé avec succès ! Nous vous répondrons dans les plus brefs délais.',
                 'success'
             );
             
-            // Réinitialiser le formulaire
             this.reset();
 
-            // Cacher le message après 5 secondes
             setTimeout(function() {
                 contactMessage.className = 'form-message';
                 contactMessage.textContent = '';
@@ -71,42 +124,11 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // ===== OUVERTURE AUTO DE LA FAQ =====
-    // Ouvrir le premier élément par défaut
     if (faqItems.length > 0) {
         faqItems[0].classList.add('active');
     }
-
-    // ===== GESTION DU MENU MOBILE =====
-    const menuToggle = document.querySelector('.menu-toggle');
-    const nav = document.querySelector('.nav');
-
-    if (menuToggle && nav) {
-        menuToggle.addEventListener('click', function () {
-            nav.classList.toggle('open');
-        });
-    }
 });
 
-// ============================================
-// FONCTIONS UTILITAIRES
-// ============================================
-
-/**
- * Valide une adresse email
- * @param {string} email - L'email à valider
- * @returns {boolean} - True si l'email est valide
- */
-function isValidEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-}
-
-/**
- * Affiche un message de statut pour le formulaire de contact
- * @param {string} message - Le message à afficher
- * @param {string} type - Le type de message ('success' ou 'error')
- */
 function showContactMessage(message, type) {
     const msg = document.getElementById('contactFormMessage');
     if (msg) {
@@ -114,7 +136,6 @@ function showContactMessage(message, type) {
         msg.className = 'form-message ' + type;
         msg.style.display = 'block';
 
-        // Cacher automatiquement après 5 secondes
         setTimeout(function() {
             msg.className = 'form-message';
             msg.textContent = '';
@@ -123,14 +144,9 @@ function showContactMessage(message, type) {
     }
 }
 
-// ============================================
-// ANIMATION AU SCROLL (Optionnel)
-// ============================================
 
-/**
- * Animation des éléments au scroll
- * Ajoute une classe 'visible' quand l'élément entre dans le viewport
- */
+// ANIMATION AU SCROLL
+
 function setupScrollAnimation() {
     const elements = document.querySelectorAll('.team-card, .value-item, .faq-item');
     
@@ -157,13 +173,9 @@ function setupScrollAnimation() {
     });
 }
 
-// ============================================
-// GESTION DES TAGS DE CATÉGORIE (Optionnel)
-// ============================================
 
-/**
- * Ajoute des couleurs aux tags de catégorie
- */
+// GESTION DES TAGS DE CATÉGORIE
+
 function setupCategoryBadges() {
     const badges = document.querySelectorAll('.event-card-badge');
     const categoryColors = {
@@ -182,24 +194,7 @@ function setupCategoryBadges() {
     });
 }
 
-// ============================================
-// INITIALISATION
-// ============================================
-
 document.addEventListener('DOMContentLoaded', function() {
-    // Animation au scroll
     setupScrollAnimation();
-    
-    // Couleurs des badges
     setupCategoryBadges();
-
-    // Gestion du bouton de connexion (pour la cohérence)
-    const loginBtn = document.querySelector('.btn-login');
-    if (loginBtn) {
-        loginBtn.addEventListener('click', function(e) {
-            // Pas d'action spéciale, le lien mène vers profil.html
-        });
-    }
-
-    console.log('✅ Page À propos chargée avec succès');
 });
