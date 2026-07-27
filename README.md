@@ -13,7 +13,7 @@ EduEvent est une plateforme web statique permettant à la communauté universita
 
 EduEvent/
 ├── index.html
-├── evenement.html
+├── evenements.html
 ├── detail.html
 ├── profil.html
 ├── a-propos.html
@@ -28,7 +28,7 @@ EduEvent/
 │   └── a-propos.js 
 ├── data/
 │   └── evenements.json
-├── image/
+├── images/
 │   ├── logo_CHCL.jpg
 │   ├── chcl-image.jpg
 │   ├── avatar-default.png
