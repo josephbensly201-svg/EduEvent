@@ -1,6 +1,34 @@
 // ============================================
-// PROFIL.JS - Gestion de l'espace étudiant
+// PROFIL.JS 
 // ============================================
+
+// ============================================
+// MENU MOBILE
+// ============================================
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.getElementById('menuToggle');
+    const nav = document.getElementById('mainNav');
+
+    if (menuToggle && nav) {
+        menuToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            nav.classList.toggle('open');
+        });
+
+        const navLinks = nav.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                nav.classList.remove('open');
+            });
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!nav.contains(e.target) && !menuToggle.contains(e.target)) {
+                nav.classList.remove('open');
+            }
+        });
+    }
+});
 
 // ============================================
 // GESTION DU LOCALSTORAGE
@@ -12,24 +40,20 @@ const STORAGE_KEYS = {
     INSCRIPTIONS: 'chcl_inscriptions'
 };
 
-// ===== RÉCUPÉRER LA LISTE DES UTILISATEURS =====
 function getUsers() {
     const users = localStorage.getItem(STORAGE_KEYS.USERS);
     return users ? JSON.parse(users) : [];
 }
 
-// ===== SAUVEGARDER LA LISTE DES UTILISATEURS =====
 function saveUsers(users) {
     localStorage.setItem(STORAGE_KEYS.USERS, JSON.stringify(users));
 }
 
-// ===== RÉCUPÉRER L'UTILISATEUR CONNECTÉ =====
 function getCurrentUser() {
     const user = localStorage.getItem(STORAGE_KEYS.CURRENT_USER);
     return user ? JSON.parse(user) : null;
 }
 
-// ===== SAUVEGARDER L'UTILISATEUR CONNECTÉ =====
 function setCurrentUser(user) {
     if (user) {
         localStorage.setItem(STORAGE_KEYS.CURRENT_USER, JSON.stringify(user));
@@ -38,14 +62,12 @@ function setCurrentUser(user) {
     }
 }
 
-// ===== RÉCUPÉRER LES INSCRIPTIONS D'UN UTILISATEUR =====
 function getUserInscriptions(email) {
     const allInscriptions = localStorage.getItem(STORAGE_KEYS.INSCRIPTIONS);
     const data = allInscriptions ? JSON.parse(allInscriptions) : {};
     return data[email] || [];
 }
 
-// ===== SAUVEGARDER LES INSCRIPTIONS D'UN UTILISATEUR =====
 function saveUserInscription(email, inscription) {
     const allInscriptions = localStorage.getItem(STORAGE_KEYS.INSCRIPTIONS);
     const data = allInscriptions ? JSON.parse(allInscriptions) : {};
@@ -58,7 +80,6 @@ function saveUserInscription(email, inscription) {
     localStorage.setItem(STORAGE_KEYS.INSCRIPTIONS, JSON.stringify(data));
 }
 
-// ===== SUPPRIMER UNE INSCRIPTION =====
 function removeUserInscription(email, inscriptionId) {
     const allInscriptions = localStorage.getItem(STORAGE_KEYS.INSCRIPTIONS);
     const data = allInscriptions ? JSON.parse(allInscriptions) : {};
@@ -67,6 +88,22 @@ function removeUserInscription(email, inscriptionId) {
         data[email] = data[email].filter(ins => ins.id !== inscriptionId);
         localStorage.setItem(STORAGE_KEYS.INSCRIPTIONS, JSON.stringify(data));
     }
+}
+
+// ============================================
+// VALIDATION EMAIL 
+// ============================================
+function isValidEmail(email) {
+    const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return re.test(email);
+}
+
+// ============================================
+// VALIDATION DU NOM 
+// ============================================
+function estNomValide(nom) {
+    const regex = /^[A-Za-zÀ-ÿ\s\-']+$/;
+    return regex.test(nom);
 }
 
 // ============================================
@@ -86,7 +123,7 @@ function loadProfilePhoto() {
     if (storedPhoto) {
         avatarImg.src = storedPhoto;
     } else {
-        avatarImg.src = 'image/avatar-default.png';
+        avatarImg.src = 'images/avatar-default.png';
     }
 }
 
@@ -182,15 +219,6 @@ function logout() {
     }
 }
 
-// ============================================
-// FONCTIONS UTILITAIRES
-// ============================================
-
-function isValidEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-}
-
 function showProfilMessage(message, type) {
     const msg = document.getElementById('profilMessage');
     if (msg) {
@@ -227,9 +255,6 @@ function loadUserProfile(user) {
     if (niveau) niveau.value = user.niveau || '';
 }
 
-// ============================================
-// METTRE À JOUR L'AFFICHAGE DU PROFIL
-// ============================================
 function updateUserDisplay(user) {
     if (!user) return;
 
@@ -250,9 +275,6 @@ function updateUserDisplay(user) {
     if (displayProgramme) displayProgramme.textContent = user.niveau || 'Non renseigné';
 }
 
-// ============================================
-// METTRE À JOUR LE TABLEAU DE BORD
-// ============================================
 function updateDashboard(user) {
     if (!user) return;
 
@@ -276,7 +298,6 @@ function updateDashboard(user) {
     if (statEvenements) statEvenements.textContent = inscriptions.length;
     if (statAnnee) statAnnee.textContent = new Date().getFullYear();
 
-    // Mettre à jour les activités récentes
     updateRecentActivities(inscriptions);
 }
 
@@ -303,9 +324,6 @@ function updateRecentActivities(inscriptions) {
     `).join('');
 }
 
-// ============================================
-// CHARGER LES INSCRIPTIONS
-// ============================================
 function loadUserInscriptions(email) {
     const inscriptionsList = document.getElementById('inscriptionsList');
     if (!inscriptionsList) return;
@@ -317,7 +335,7 @@ function loadUserInscriptions(email) {
             <div style="text-align: center; padding: 40px;">
                 <i class="fas fa-calendar-plus" style="font-size: 3rem; color: var(--gray);"></i>
                 <p style="color: var(--gray); margin-top: 12px;">Vous n'êtes inscrit(e) à aucun événement pour le moment.</p>
-                <a href="evenement.html" class="btn-primary" style="margin-top: 16px;">Découvrir des événements</a>
+                <a href="evenements.html" class="btn-primary" style="margin-top: 16px;">Découvrir des événements</a>
             </div>
         `;
         return;
@@ -410,9 +428,9 @@ function handleRegisterForm() {
         const confirmPassword = document.getElementById('regConfirmPassword').value;
         const terms = document.getElementById('regTerms').checked;
 
-        // Validations
-        if (!prenom || !nom) {
-            alert('Veuillez entrer votre prénom et votre nom.');
+        // Validation du prénom et nom (lettres uniquement)
+        if (!prenom || !nom || !estNomValide(prenom) || !estNomValide(nom)) {
+            alert('Veuillez entrer un prénom et un nom valides (lettres uniquement).');
             return;
         }
 
@@ -462,7 +480,6 @@ function handleRegisterForm() {
             return;
         }
 
-        // Création du compte
         const newUser = {
             prenom: prenom,
             nom: nom,
@@ -536,8 +553,9 @@ function handleProfilForm() {
         const faculte = document.getElementById('profilFaculte').value.trim();
         const niveau = document.getElementById('profilNiveau').value.trim();
 
-        if (!prenom || !nom || !email) {
-            showProfilMessage('Veuillez remplir tous les champs obligatoires.', 'error');
+        // Validation du prénom et nom (lettres uniquement)
+        if (!prenom || !nom || !email || !estNomValide(prenom) || !estNomValide(nom)) {
+            showProfilMessage('Veuillez remplir tous les champs obligatoires (lettres uniquement pour nom et prénom).', 'error');
             return;
         }
 
@@ -622,9 +640,6 @@ function handleSettingsForm() {
     });
 }
 
-// ============================================
-// BOUTON DÉCONNEXION
-// ============================================
 function handleLogout() {
     const logoutBtn = document.getElementById('logoutBtn');
     if (logoutBtn) {
