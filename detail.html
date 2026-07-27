@@ -16,20 +16,20 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <img src="image/logo_CHCL.jpg" alt="UEH Logo" />
+                    <img src="images/logo_CHCL.jpg" alt="UEH Logo" />
                     <span>EduEvent</span>
                 </div>
-                <nav class="nav">
+                <nav class="nav" id="mainNav">
                     <ul>
                         <li><a href="index.html">Accueil</a></li>
-                        <li><a href="evenement.html" class="active">Événements</a></li>
+                        <li><a href="evenements.html" class="active">Événements</a></li>
                         <li><a href="a-propos.html">À propos</a></li>
                         <li><a href="profil.html">Espace étudiant</a></li>
                     </ul>
                 </nav>
                 <div class="header-actions">
-                    <a href="profil.html" class="btn-login"><i class="fas fa-user"></i> Connexion</a>
-                    <button class="menu-toggle" aria-label="Menu">
+                    <a href="profil.html" class="btn-login" id="btnLogin"><i class="fas fa-user"></i> Connexion</a>
+                    <button class="menu-toggle" id="menuToggle" aria-label="Menu">
                         <i class="fas fa-bars"></i>
                     </button>
                 </div>
@@ -40,7 +40,7 @@
     <!-- DÉTAIL DE L'ÉVÉNEMENT -->
     <section class="event-detail">
         <div class="container">
-            <a href="evenement.html" class="back-link"><i class="fas fa-arrow-left"></i> Retour à la liste</a>
+            <a href="evenements.html" class="back-link"><i class="fas fa-arrow-left"></i> Retour à la liste</a>
             
             <div id="eventDetailContainer">
                 <!-- Chargé dynamiquement par JavaScript -->
@@ -52,7 +52,9 @@
                 <form id="registrationForm">
                     <div class="form-group">
                         <label for="regNom">Nom complet</label>
-                        <input type="text" id="regNom" placeholder="Votre nom et prénom" required />
+                        <input type="text" id="regNom" placeholder="Votre nom et prénom" required 
+                               pattern="[A-Za-zÀ-ÿ\s\-']+" 
+                               title="Le nom ne doit contenir que des lettres, espaces, tirets et apostrophes" />
                     </div>
                     <div class="form-group">
                         <label for="regEmail">Email</label>
@@ -86,7 +88,9 @@
                 <form id="commentForm">
                     <div class="form-group">
                         <label for="commentNom">Votre nom</label>
-                        <input type="text" id="commentNom" placeholder="Votre nom" required />
+                        <input type="text" id="commentNom" placeholder="Votre nom" required 
+                               pattern="[A-Za-zÀ-ÿ\s\-']+" 
+                               title="Le nom ne doit contenir que des lettres, espaces, tirets et apostrophes" />
                     </div>
                     <div class="form-group">
                         <label for="commentText">Votre commentaire</label>
@@ -104,7 +108,7 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <div class="logo">
-                        <img src="image/logo_CHCL.jpg" alt="EduEvent" />
+                        <img src="images/logo_CHCL.jpg" alt="EduEvent" />
                         <span>EduEvent</span>
                     </div>
                     <p>La plateforme des événements du campus. Ensemble, créons une vie universitaire plus riche.</p>
@@ -120,7 +124,7 @@
                     <h3>Navigation</h3>
                     <ul>
                         <li><a href="index.html">Accueil</a></li>
-                        <li><a href="evenement.html">Événements</a></li>
+                        <li><a href="evenements.html">Événements</a></li>
                         <li><a href="a-propos.html">À propos</a></li>
                         <li><a href="profil.html">Espace étudiant</a></li>
                     </ul>
@@ -128,10 +132,10 @@
                 <div class="footer-links">
                     <h3>Catégories</h3>
                     <ul>
-                        <li><a href="evenement.html?categorie=conference">Conférences</a></li>
-                        <li><a href="evenement.html?categorie=atelier">Ateliers</a></li>
-                        <li><a href="evenement.html?categorie=sport">Sports</a></li>
-                        <li><a href="evenement.html?categorie=culture">Culture</a></li>
+                        <li><a href="evenements.html?categorie=conference">Conférences</a></li>
+                        <li><a href="evenements.html?categorie=atelier">Ateliers</a></li>
+                        <li><a href="evenements.html?categorie=sport">Sports</a></li>
+                        <li><a href="evenements.html?categorie=culture">Culture</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact">
