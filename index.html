@@ -16,20 +16,20 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <img src="image/logo_CHCL.jpg" alt="UEH Logo" />
+                    <img src="images/logo_CHCL.jpg" alt="UEH Logo" />
                     <span>EduEvent</span>
                 </div>
-                <nav class="nav">
+                <nav class="nav" id="mainNav">
                     <ul>
                         <li><a href="index.html" class="active">Accueil</a></li>
-                        <li><a href="evenement.html">Événements</a></li>
+                        <li><a href="evenements.html">Événements</a></li>
                         <li><a href="a-propos.html">À propos</a></li>
                         <li><a href="profil.html">Espace étudiant</a></li>
                     </ul>
                 </nav>
                 <div class="header-actions">
-                    <a href="profil.html" class="btn-login"><i class="fas fa-user"></i> Connexion</a>
-                    <button class="menu-toggle" aria-label="Menu">
+                    <a href="profil.html" class="btn-login" id="btnLogin"><i class="fas fa-user"></i> Connexion</a>
+                    <button class="menu-toggle" id="menuToggle" aria-label="Menu">
                         <i class="fas fa-bars"></i>
                     </button>
                 </div>
@@ -40,15 +40,15 @@
     <!-- HERO SECTION -->
     <section class="hero">
         <div class="hero-bg">
-            <img src="image/chcl-image.jpg" alt="Campus CHCL" />
+            <img src="images/chcl-image.jpg" alt="Campus CHCL" />
         </div>
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>C H C L <br/><span>Events Official Platform</span></h1>
+                    <h1>C H C L <br/><span>Plateforme des Événements</span></h1>
                     <p>Découvrez, participez et vivez les événements qui font vibrer le Campus. Conférences, ateliers, sports, culture tout est réuni sur EduEvent.</p>
                     <div class="hero-buttons">
-                        <a href="evenement.html" class="btn-primary"><i class="fas fa-calendar-check"></i> Explorer les événements</a>
+                        <a href="evenements.html" class="btn-primary"><i class="fas fa-calendar-check"></i> Explorer les événements</a>
                         <a href="a-propos.html" class="btn-secondary">En savoir plus</a>
                     </div>
                 </div>
@@ -67,7 +67,7 @@
                 <!-- Chargé dynamiquement par JavaScript -->
             </div>
             <div class="text-center">
-                <a href="evenement.html" class="btn-primary">Voir tous les événements</a>
+                <a href="evenements.html" class="btn-primary">Voir tous les événements</a>
             </div>
         </div>
     </section>
@@ -77,15 +77,15 @@
         <div class="container">
             <div class="stats-grid">
                 <div class="stat-item">
-                    <div class="stat-number" data-target="3">0</div>
+                    <div class="stat-number" data-target="0">0</div>
                     <div class="stat-label">Événements organisés</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number" data-target="230">0</div>
+                    <div class="stat-number" data-target="0">0</div>
                     <div class="stat-label">Participants</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number" data-target="3">0</div>
+                    <div class="stat-number" data-target="0">0</div>
                     <div class="stat-label">Catégories</div>
                 </div>
                 <div class="stat-item">
@@ -117,7 +117,7 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <div class="logo">
-                        <img src="image/logo_CHCL.jpg" alt="EduEvent" />
+                        <img src="images/logo_CHCL.jpg" alt="EduEvent" />
                         <span>EduEvent</span>
                     </div>
                     <p>La plateforme des événements de votre campus. Ensemble, créons une vie universitaire plus riche.</p>
@@ -133,7 +133,7 @@
                     <h3>Navigation</h3>
                     <ul>
                         <li><a href="index.html">Accueil</a></li>
-                        <li><a href="evenement.html">Événements</a></li>
+                        <li><a href="evenements.html">Événements</a></li>
                         <li><a href="a-propos.html">À propos</a></li>
                         <li><a href="profil.html">Espace étudiant</a></li>
                     </ul>
@@ -141,10 +141,10 @@
                 <div class="footer-links">
                     <h3>Catégories</h3>
                     <ul>
-                        <li><a href="evenement.html?categorie=conference">Conférences</a></li>
-                        <li><a href="evenement.html?categorie=atelier">Ateliers</a></li>
-                        <li><a href="evenement.html?categorie=sport">Sports</a></li>
-                        <li><a href="evenement.html?categorie=culture">Culture</a></li>
+                        <li><a href="evenements.html?categorie=conference">Conférences</a></li>
+                        <li><a href="evenements.html?categorie=atelier">Ateliers</a></li>
+                        <li><a href="evenements.html?categorie=sport">Sports</a></li>
+                        <li><a href="evenements.html?categorie=culture">Culture</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact">
