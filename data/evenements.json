@@ -7,7 +7,7 @@
         "lieu": "Auditorium, Campus CHCL",
         "categorie": "Conférence",
         "organisateur": "Département d'Informatique",
-        "image": "image/events/conference1.jpg",
+        "image": "images/events/conference1.jpg",
         "capacite": 100,
         "inscrits": 75
     },
@@ -19,7 +19,7 @@
         "lieu": "Salle 204, Campus CHCL",
         "categorie": "Atelier",
         "organisateur": "Club Tech",
-        "image": "image/events/reseaux.jpg",
+        "image": "images/events/reseaux.jpg",
         "capacite": 50,
         "inscrits": 30
     },
@@ -31,7 +31,7 @@
         "lieu": "Parc Raphaël, Campus CHCL",
         "categorie": "Sport",
         "organisateur": "Service des Sports",
-        "image": "image/events/foot1.jpg",
+        "image": "images/events/foot1.jpg",
         "capacite": 200,
         "inscrits": 120
     },
@@ -43,7 +43,7 @@
         "lieu": "Espace Culturel, Campus CHCL",
         "categorie": "Culture",
         "organisateur": "Association Culturelle",
-        "image": "image/events/soiree.jpg",
+        "image": "images/events/soiree.jpg",
         "capacite": 150,
         "inscrits": 90
     },
@@ -55,7 +55,7 @@
         "lieu": "Auditorium, Campus CHCL",
         "categorie": "Soutenance",
         "organisateur": "Département d'Informatique",
-        "image": "image/events/soutenance.jpg",
+        "image": "images/events/soutenance.jpg",
         "capacite": 100,
         "inscrits": 60
     },
@@ -67,7 +67,7 @@
         "lieu": "Auditorium, Campus CHCL",
         "categorie": "Conférence",
         "organisateur": "Faculté de Médecine",
-        "image": "image/events/Confer..jpg",
+        "image": "images/events/Confer..jpg",
         "capacite": 120,
         "inscrits": 80
     }
