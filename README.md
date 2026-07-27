@@ -1,5 +1,5 @@
 
-# EduEvent - Plateforme de gestion d'événements universitaires
+# EduEvent , Plateforme de gestion d'événements universitaires
 
 ## Présentation
 EduEvent est une plateforme web statique permettant à la communauté universitaire de consulter, rechercher et s'inscrire aux événements organisés sur le campus Henry Christophe de Limonade (CHCL).
