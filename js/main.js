@@ -1,17 +1,34 @@
 // ============================================
-// MAIN.JS - Page d'accueil
+// MAIN.JS 
 // ============================================
 
 // ===== MENU MOBILE =====
 document.addEventListener('DOMContentLoaded', function () {
-    const menuToggle = document.querySelector('.menu-toggle');
-    const nav = document.querySelector('.nav');
+    const menuToggle = document.getElementById('menuToggle');
+    const nav = document.getElementById('mainNav');
 
     if (menuToggle && nav) {
-        menuToggle.addEventListener('click', function () {
+        menuToggle.addEventListener('click', function (e) {
+            e.stopPropagation();
             nav.classList.toggle('open');
         });
+
+        const navLinks = nav.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function () {
+                nav.classList.remove('open');
+            });
+        });
+
+        document.addEventListener('click', function (e) {
+            if (!nav.contains(e.target) && !menuToggle.contains(e.target)) {
+                nav.classList.remove('open');
+            }
+        });
     }
+
+    // ===== GESTION DU BOUTON CONNEXION =====
+    updateLoginButton();
 
     // ===== NEWSLETTER =====
     const newsletterForm = document.getElementById('newsletterForm');
@@ -46,11 +63,53 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // ============================================
-// VALIDATION EMAIL
+// GESTION DU BOUTON CONNEXION
+// ============================================
+function updateLoginButton() {
+    const btnLogin = document.getElementById('btnLogin');
+    const currentUser = localStorage.getItem('chcl_current_user');
+    
+    if (btnLogin) {
+        if (currentUser) {
+            // Utilisateur connecté → cacher le bouton
+            btnLogin.style.display = 'none';
+        } else {
+            // Utilisateur déconnecté → afficher le bouton
+            btnLogin.style.display = 'inline-flex';
+        }
+    }
+}
+
+// ============================================
+// DÉCONNEXION GLOBALE 
+// ============================================
+function logoutGlobal() {
+    if (confirm('Êtes-vous sûr de vouloir vous déconnecter ?')) {
+        localStorage.removeItem('chcl_current_user');
+        updateLoginButton();
+        // Rediriger vers l'accueil si on est sur la page profil
+        if (window.location.pathname.includes('profil.html')) {
+            window.location.href = 'index.html';
+        } else {
+            location.reload();
+        }
+    }
+}
+
+// ============================================
+// VALIDATION EMAIL 
 // ============================================
 function isValidEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     return re.test(email);
+}
+
+// ============================================
+// VALIDATION DU NOM 
+// ============================================
+function estNomValide(nom) {
+    const regex = /^[A-Za-zÀ-ÿ\s\-']+$/;
+    return regex.test(nom);
 }
 
 // ============================================
@@ -86,7 +145,6 @@ async function chargerEvenements() {
         return await response.json();
     } catch (error) {
         console.error('Erreur chargement JSON:', error);
-        // Données de secours
         return [
             {
                 id: 1,
@@ -95,7 +153,7 @@ async function chargerEvenements() {
                 date: "2026-07-15",
                 lieu: "Auditorium, Campus CHCL",
                 categorie: "Conférence",
-                image: "image/events/conference1.jpg",
+                image: "images/events/conference1.jpg",
                 inscrits: 75
             },
             {
@@ -105,7 +163,7 @@ async function chargerEvenements() {
                 date: "2026-07-20",
                 lieu: "Salle 204, Campus CHCL",
                 categorie: "Atelier",
-                image: "image/events/reseaux.jpg",
+                image: "images/events/reseaux.jpg",
                 inscrits: 30
             },
             {
@@ -115,7 +173,7 @@ async function chargerEvenements() {
                 date: "2026-07-25",
                 lieu: "Parc Raphaël, Campus CHCL",
                 categorie: "Sport",
-                image: "image/events/foot1.jpg",
+                image: "images/events/foot1.jpg",
                 inscrits: 120
             }
         ];
@@ -133,12 +191,12 @@ function createEventCard(event) {
         year: 'numeric'
     });
     
-    const imagePath = event.image || 'image/events/default.jpg';
+    const imagePath = event.image || 'images/events/default.jpg';
 
     return `
         <div class="event-card">
             <div class="event-card-image">
-                <img src="${imagePath}" alt="${event.titre}" onerror="this.src='image/events/default.jpg'" />
+                <img src="${imagePath}" alt="${event.titre}" onerror="this.src='images/events/default.jpg'" />
                 <span class="event-card-badge">${event.categorie}</span>
             </div>
             <div class="event-card-body">
@@ -165,12 +223,10 @@ async function loadStatsAndAnimate() {
 
         const statNumbers = statsSection.querySelectorAll('.stat-number');
         if (statNumbers.length >= 4) {
-            // Calcul des statistiques
             const totalEvents = events.length;
             const totalParticipants = events.reduce((sum, e) => sum + (e.inscrits || 0), 0);
             const categories = new Set(events.map(e => e.categorie));
             
-            // Mettre à jour les data-target
             statNumbers[0].setAttribute('data-target', totalEvents);
             statNumbers[1].setAttribute('data-target', totalParticipants);
             statNumbers[2].setAttribute('data-target', categories.size);
@@ -180,7 +236,6 @@ async function loadStatsAndAnimate() {
         console.error('Erreur chargement stats:', error);
     }
 
-    // Lancer l'animation
     animateStats();
 }
 
